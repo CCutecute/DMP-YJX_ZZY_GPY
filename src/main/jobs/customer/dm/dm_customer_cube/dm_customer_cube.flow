@@ -1,0 +1,9 @@
+---
+config:
+  #failure.emails: xx@xx
+
+nodes:
+  - name: dm_customer_cube_code_job
+    type: command
+    config:
+      command: sh dm_customer_cube.sh
