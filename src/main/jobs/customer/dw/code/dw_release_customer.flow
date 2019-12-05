@@ -1,0 +1,9 @@
+---
+config:
+  #failure.emails: xx@xx
+
+nodes:
+  - name: dw_release_customer_code_job
+    type: command
+    config:
+      command: sh dw_release_customer.sh
