@@ -1,5 +1,7 @@
 package dmp.common
 
+import org.apache.spark.sql.SaveMode
+
 /**
   * Description:
   * Copyright (c),2019,JingxuanYan
@@ -14,12 +16,16 @@ object Constant {
 
   val APPLICATION_NAME ="DMP"
   val MASTER ="local[2]"
+
   val LOG_URL = "D://XSQ-BigData-24/项目/DMP项目资料/2016-10-01_06_p1_invalid.1475274123982.log"
-  val DB_URL ="jdbc:mysql://127.0.0.1:3306/advertising?useUnicode=true&characterEncoding=utf8"
+  val LOG_SAVE_URL = "D://XSQ-BigData-24/项目/DMP项目资料/2016-10-01_06_p1_invalid.1475274123982.log.parquet"
+
+  val DB_URL ="jdbc:mysql://127.0.0.1:3306/advertising?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC"
   val DB_USERNAME="root"
   val DB_PASSWORD="123321"
-  val SERIALIZER ="org.apache.spark.serializer.KryoSerializer"
 
+  val SERIALIZER ="org.apache.spark.serializer.KryoSerializer"
+  val SAVE_MODE = SaveMode.Overwrite
 }
 
 /**
