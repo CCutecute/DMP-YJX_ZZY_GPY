@@ -19,7 +19,7 @@ import org.apache.spark.sql.DataFrame
 object Volumn {
   def main(args: Array[String]): Unit = {
     val spark = SparkUtils.getSparkSession(false)
-    val df: DataFrame = spark.read.parquet(Constant.LOG_SAVE_URL)
+    val df: DataFrame = spark.read.parquet(Constant.LOG_SAVE_URL).persist()
 //    df.show()
     import org.apache.spark.sql.functions._
     val volumnDF: DataFrame = df
