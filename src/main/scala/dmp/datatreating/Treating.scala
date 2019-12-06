@@ -1,8 +1,9 @@
 package dmp.datatreating
 
 import dmp.Entry.Log
-import dmp.common.{Constant}
+import dmp.common.Constant
 import dmp.util.SparkUtils
+import org.apache.spark.sql.{Dataset}
 
 
 ///**
@@ -21,7 +22,7 @@ object Treating {
     val ssc = SparkUtils.getSparkSession(false)
     val frame = ssc.read.textFile(Constant.LOG_URL)
     import ssc.implicits._
-    val LogDF = frame.map(x => x.split(","))
+    val LogDF: Dataset[Log] = frame.map(x => x.split(","))
       .filter(x => x.length == 85)
       .map(line =>
         Log(
@@ -111,8 +112,10 @@ object Treating {
           line(83),
           line(84).toInt)
       ).distinct()
-    LogDF.show()
+    LogDF.coalesce(3)
+      .write.format("parquet").mode(Constant.SAVE_MODE).save(Constant.LOG_SAVE_URL)
 
-
+    println("转换完成")
+    ssc.stop()
   }
 }
