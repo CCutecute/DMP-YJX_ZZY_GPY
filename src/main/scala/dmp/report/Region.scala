@@ -29,8 +29,8 @@ object Region {
         |sum(case when iseffective=1 and isbilling=1 and iswin=1 and adorderid!=0 then 1 else 0 end) as bidsSus,
         |sum(case when requestmode=2 and iseffective=1 then 1 else 0 end) as adDisplayNum,
         |sum(case when requestmode=3 and iseffective=1 then 1 else 0 end) as adClickNum,
-        |sum(case when adplatformproviderid>=100000 and iseffective=1 and isbilling=1 and iswin=1 and adcreativeid>=200000 then winprice/1000 else 0 end) as adconsume,
-        |sum(case when adplatformproviderid>=100000 and iseffective=1 and isbilling=1 and iswin=1 and adcreativeid>=200000 then adpayment/1000 else 0 end) as adcost
+        |sum(case when iseffective=1 and isbilling=1 and iswin=1 then winprice/1000 else 0 end) as adconsume,
+        |sum(case when iseffective=1 and isbilling=1 and iswin=1 then adpayment/1000 else 0 end) as adcost
         |from tb_log
         |group by provincename, cityname
       """.stripMargin)
