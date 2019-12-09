@@ -23,7 +23,7 @@ import scala.collection.mutable
   * @date 2019/12/7 17:38
   * @version 1.0
   */
-object HbaseUtils {
+object HbaseUtils{
   val logger:Logger = Logger.getLogger("hbase_logger")
   var connection:Connection = null
   //获取连接配置对象
@@ -53,16 +53,18 @@ object HbaseUtils {
     * spark写hbase
     */
   def writeHbase(rdd:RDD[(String, String)]) = {
-    val table = connection.getTable(TableName.valueOf("user_tag"))
     rdd.map(x =>{
+      val table = connection.getTable(TableName.valueOf("user_tag"))
       val userid = x._1
       val tags = x._2
       val day = new SimpleDateFormat("yyyy-MM-dd").format(new Date)
       val put:Put = new Put(Bytes.toBytes(userid))
       put.addImmutable(Bytes.toBytes("tags"),Bytes.toBytes(day),Bytes.toBytes(tags))
       table.put(put)
-    })
+      table.close()
+    }).collect()
     //关闭连接
-    table.close()
+    println("写入hbase成功")
+
   }
 }
