@@ -1,11 +1,10 @@
 package dmp.tags
 
 import dmp.common.Constant
-import dmp.util.{SparkUtils, TagUtils}
+import dmp.util.{HbaseUtils, SparkUtils, TagUtils}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.DataFrame
 
-import scala.collection.mutable
 import scala.io.Source
 
 /**
@@ -52,13 +51,14 @@ object TagMaker {
       val deviceTag = DeviceTag.makeTag(row)
       val keyWordTag = KeyWordTag.makeTag(row, stopwordsBroadcast.value)
       val regionTag = RegionTag.makeTag(row)
-      val tags = adTypeTag ++ appNameTag ++ channelTag ++ deviceTag ++ keyWordTag ++ regionTag
+      val tradingAreaTag = TradingAreaTag.makeTag(row)
+      val tags = adTypeTag ++ appNameTag ++ channelTag ++ deviceTag ++ keyWordTag ++ regionTag ++ tradingAreaTag
       val userid = TagUtils.selectUserId(row)
       (userid, tags)
     })
     //    test.collect.toBuffer.foreach(println)
     //      test.toDF.show(1000,false)
-    val user_tag_agg: RDD[(String, mutable.Map[String, Integer])] = user_tag
+    val user_tag_agg: RDD[(String, String)] = user_tag
       .groupBy(_._1)
       .map(info => {
         val userid = info._1
@@ -73,13 +73,15 @@ object TagMaker {
               map += tag
           }
         }
-        (userid, map)
+        var tagstring = map.mkString(",")
+        (userid, tagstring)
       })
 
-    user_tag_agg.collect.toBuffer.foreach(println)
+    user_tag_agg.collect
+//      .toBuffer.foreach(println)
 
     //写入hbase中
-
+    HbaseUtils.writeHbase(user_tag_agg)
 
 
     spark.stop()
