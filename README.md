@@ -13,7 +13,7 @@ flume	1.9.0
 kafka	1.0.2  
 hive	2.3.6  
 azkaban	0.1.0  
-scala	2.11  
+scala	2.11.8  
 spark	2.3.2 
 ```
  
