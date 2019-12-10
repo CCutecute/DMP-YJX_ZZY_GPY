@@ -13,7 +13,7 @@ import org.apache.spark.sql.DataFrame
   * @date 2019/12/6 19:16
   * @version 1.0
   */
-object Region {
+object Network {
   def main(args: Array[String]): Unit = {
     val spark = SparkUtils.getSparkSession(false)
     val df: DataFrame = spark.read.parquet(Constant.LOG_SAVE_URL).persist()
