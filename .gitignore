@@ -1,7 +1,0 @@
-##ignore this file##
-/target/
-/src/test/
-.project
-.settings
-.idea/*
-.idea/
