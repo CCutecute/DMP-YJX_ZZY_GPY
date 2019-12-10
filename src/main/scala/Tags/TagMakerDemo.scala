@@ -1,6 +1,9 @@
 package Tags
 
 import constants.ComConstants
+import org.apache.hadoop.hbase.client.Put
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable
+import org.apache.hadoop.hbase.util.Bytes
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import traits.Process
 
@@ -69,8 +72,19 @@ object TagMakerDemo extends Process {
             .toList
             .sortBy(_._1)
         ) //.foreach(println)
-        .toDF("UserID", "Tags")
-        .show(1000)
+//        .toDF("UserID", "Tags")
+      //        .show(1000)
+//        .map{
+//          case (userid,userTags)=>{
+//            val put = new Put(Bytes.toBytes(userid))
+//            val tags = userTags.map(t=>t._1+":"+t._2).mkString(",")
+//            // 对应的rowKey下面的列  列名 列的value值
+//            put.addImmutable(Bytes.toBytes("tags"),Bytes.toBytes(day),Bytes.toBytes(tags))
+//            // 存入Hbase
+//            (new ImmutableBytesWritable(),put)
+//          }
+//        }
+      //将数据写入Hbase
     } finally {
       spark.close()
     }

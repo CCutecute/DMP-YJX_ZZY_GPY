@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d240ce59-a345-4fe3-8fd3-317b67adaba8" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DMP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../1901_DMP" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -62,18 +61,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MyIdeaProject\DMP_AD_Push_Project\data" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="ADpush" type="Application" factoryName="Application" temporary="true">
@@ -94,6 +81,18 @@
         <item itemvalue="Application.ADpush" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -120,6 +119,7 @@
       <workItem from="1575958602281" duration="1305000" />
       <workItem from="1575961282422" duration="14000" />
       <workItem from="1575970110681" duration="66000" />
+      <workItem from="1575970478191" duration="4331000" />
     </task>
     <servers />
   </component>
@@ -155,10 +155,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="536" y="283" width="439" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1575940910974" />
-    <state x="589" y="220" key="FileChooserDialogImpl" timestamp="1575943398754">
+    <state x="589" y="220" key="FileChooserDialogImpl" timestamp="1575984111388">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="589" y="220" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1575943398754" />
+    <state x="589" y="220" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1575984111388" />
     <state width="1493" height="193" key="GridCell.Tab.0.bottom" timestamp="1575958753001">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
